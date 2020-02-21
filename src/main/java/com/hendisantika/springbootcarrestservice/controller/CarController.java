@@ -5,6 +5,8 @@ import com.hendisantika.springbootcarrestservice.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,13 +28,18 @@ public class CarController {
     private CarRepository carRepository;
 
     @GetMapping
-    Iterable<Car> getCars() {
+    public Iterable<Car> getCars() {
         return carRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    Optional<Car> getCarById(@PathVariable("id") String id) {
+    public Optional<Car> getCarById(@PathVariable("id") String id) {
         return carRepository.findById(Long.parseLong(id));
+    }
+
+    @PostMapping
+    public Car addNewCar(@RequestBody Car car) {
+        return carRepository.save(car);
     }
 
 }
