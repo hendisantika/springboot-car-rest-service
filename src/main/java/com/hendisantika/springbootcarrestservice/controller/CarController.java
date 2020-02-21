@@ -1,0 +1,23 @@
+package com.hendisantika.springbootcarrestservice.controller;
+
+import com.hendisantika.springbootcarrestservice.repository.CarRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ * Created by IntelliJ IDEA.
+ * Project : springboot-car-rest-service
+ * User: hendisantika
+ * Email: hendisantika@gmail.com
+ * Telegram : @hendisantika34
+ * Date: 21/02/20
+ * Time: 17.45
+ */
+@RestController
+@RequestMapping("/api/cars")
+public class CarController {
+    @Autowired
+    private CarRepository carRepository;
+
+}
