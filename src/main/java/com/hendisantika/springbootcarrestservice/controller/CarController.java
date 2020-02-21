@@ -1,7 +1,9 @@
 package com.hendisantika.springbootcarrestservice.controller;
 
+import com.hendisantika.springbootcarrestservice.domain.Car;
 import com.hendisantika.springbootcarrestservice.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class CarController {
     @Autowired
     private CarRepository carRepository;
+
+    @GetMapping
+    Iterable<Car> getCars() {
+        return carRepository.findAll();
+    }
 
 }
