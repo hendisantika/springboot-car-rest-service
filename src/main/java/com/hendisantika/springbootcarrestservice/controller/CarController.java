@@ -3,6 +3,7 @@ package com.hendisantika.springbootcarrestservice.controller;
 import com.hendisantika.springbootcarrestservice.domain.Car;
 import com.hendisantika.springbootcarrestservice.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +41,11 @@ public class CarController {
     @PostMapping
     public Car addNewCar(@RequestBody Car car) {
         return carRepository.save(car);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCarById(@PathVariable("id") Long id) {
+        carRepository.deleteById(id);
     }
 
 }
