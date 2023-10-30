@@ -2,16 +2,10 @@ package com.hendisantika.springbootcarrestservice.controller;
 
 import com.hendisantika.springbootcarrestservice.domain.Car;
 import com.hendisantika.springbootcarrestservice.repository.CarRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -26,9 +20,9 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api/cars")
+@RequiredArgsConstructor
 public class CarController {
-    @Autowired
-    private CarRepository carRepository;
+    private final CarRepository carRepository;
 
     @GetMapping
     public Iterable<Car> getCars() {

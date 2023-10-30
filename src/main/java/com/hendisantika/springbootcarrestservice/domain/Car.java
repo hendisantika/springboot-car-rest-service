@@ -1,9 +1,12 @@
 package com.hendisantika.springbootcarrestservice.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,6 +18,9 @@ import javax.persistence.Id;
  * Time: 17.41
  */
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -25,63 +31,12 @@ public class Car {
     private String fuel;
     private int year;
 
-    public Car() {
-    }
-
     public Car(String brand, String model, String color, String fuel, int year) {
         super();
         this.brand = brand;
         this.model = model;
         this.color = color;
         this.fuel = fuel;
-        this.year = year;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getFuel() {
-        return fuel;
-    }
-
-    public void setFuel(String fuel) {
-        this.fuel = fuel;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
         this.year = year;
     }
 }
